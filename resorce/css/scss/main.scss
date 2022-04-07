@@ -1,0 +1,99 @@
+body {
+  font-family: verdana, helvetica, arial, sans-serif;
+  border: 0px;
+  margin: 0px;
+  padding: 0px;
+
+  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAIUlEQVQYV2N89urtfwYiACNIoZSYMCMhtaMK8YYQ0cEDAG5yJ8eLRhTfAAAAAElFTkSuQmCC)
+    repeat;
+}
+$navHeigth : 40px;
+div#nav {
+  margin: 0px;
+  height : $navHeigth;
+  background-color : rgb(41, 47, 51);
+  display: flex;
+  align-items: center; 
+  flex-direction: row; 
+  div#title{
+     
+    color: rgb(204, 214, 221);
+    font-size: 25px; 
+    
+  }
+}
+#sudokuContainer { // 스도쿠 박스 css
+  $selectColor1 : rgb(230, 240, 255, 0.4);
+  $selectColor2 : rgb(110, 122, 103,0.5);
+  background-color: white;
+  //margin-top: $navHeigth;
+  box-shadow: 0px 0px 5px 5px #bdc3c7;
+  //position: absolute;
+  margin-left: 50%;
+  margin-top:  30px;
+  //top: 50%;
+  transform: translate(-50%);
+  
+  display: grid;
+  grid-template-rows    : 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-columns : 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  .sudokuBox{ // 기본 스도쿠 박스 css
+    border : solid gray 0.5px;
+    position: relative;
+    
+  }
+    
+  div[x='3'],div[x='6']{    //컨터이너 선 굵기 조절 1
+    border-right: solid black 2px;
+  }
+  div[y='3'],div[y='6']{    //컨터이너 선 굵기 조절 2
+    border-bottom: solid black 2px;
+  }
+  
+  .selectBox{ // 선택 박스 색상 변경 1
+    background-color: $selectColor1;
+  }
+  .selectX{ // 선택 박스 색상 변경 2
+    background-color: $selectColor1;
+    border-left: dashed 1px rgb(54, 47, 55);
+    border-right: dashed 1px rgb(54, 47, 55);;
+  } 
+  .selectY{ // 선택 박스 색상 변경 3
+    background-color: $selectColor1;
+    border-bottom: dashed 1px rgb(54, 47, 55);;
+    border-top: dashed 1px rgb(54, 47, 55);;
+  }
+  .selectXY{ // 선택 박스 색상 변경 4
+    background-color: $selectColor2;
+  }
+
+
+  .sudokuBox .resultP{ // 결과 입력 P
+    position :  absolute;
+    font-size : 0px;
+    transform: translate(-50%, -50%);
+    margin: 0px;
+    top : 50%;
+    left  : 50%;
+  }
+  .sudokuBox .memoDiv{ // 메모 입력 div
+    position : relative
+  }
+  
+}
+
+
+
+#sudokuContainer div.sudokuBox{
+  display: grid;
+  grid-template-columns : 1fr 1fr 1fr;
+  grid-template-rows    : 1fr 1fr 1fr;
+}
+body #sudokuContainer div.sudokuBox div.memoDiv p.memoP{
+  position : absolute;
+  transform: translate(-50%, -50%);
+  font-size: 0px;
+  margin: 0px;
+  top: 50%;
+  left: 50%;
+} 
